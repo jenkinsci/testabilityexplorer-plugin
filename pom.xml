@@ -2,10 +2,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jvnet.hudson.plugins</groupId>
-        <artifactId>plugin</artifactId>
-        <version>1.319</version>
-        <relativePath>../pom.xml</relativePath>
+		<groupId>org.jenkins-ci.plugins</groupId>
+		<artifactId>plugin</artifactId>
+        <version>1.437</version>
     </parent>
 
     <artifactId>testabilityexplorer</artifactId>
@@ -21,6 +20,10 @@
             <id>reikje</id>
             <name>Reik Schatz</name>
         </developer>
+		<developer>
+			<id>vsbmeza</id>
+			<name>Marton Meszaros</name>
+		</developer>
     </developers>
 
     <licenses>
@@ -42,8 +45,9 @@
 
     <dependencies>
   	<dependency>  		
-            <groupId>org.jvnet.hudson.main</groupId>
-            <artifactId>maven-plugin</artifactId>  		
+            <groupId>org.jenkins-ci.main</groupId>
+            <artifactId>maven-plugin</artifactId>
+		    <version>1.437</version>
   	</dependency>  		
         <dependency>
             <groupId>org.testng</groupId>
@@ -101,43 +105,6 @@
                 </configuration>
             </plugin>
 
-            <!--
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>testability report</id>
-                        <phase>test</phase>
-                        <configuration>
-                            <tasks>
-                                <path id="ant.classpath">
-                                    <path refid="maven.runtime.classpath" />
-                                </path>
-
-                                <echo message="Running testability explorer" />
-
-                                <property name="testability.report.dir" value="target/reports/testability" />
-                                <delete dir="${testability.report.dir}" />
-                                <mkdir dir="${testability.report.dir}" />
-
-                                <taskdef name="testability" classname="com.google.ant.TestabilityTask">
-                                    <classpath refid="maven.runtime.classpath" />
-                                </taskdef>
-                                <testability filter="hudson.plugins.testabilityexplorer" whitelist="org.apache" resultfile="${testability.report.dir}/results.xml" print="xml">
-                                    <classpath refid="maven.runtime.classpath" />
-                                </testability>
-
-                                <echo message="Done. Reports can be found in ${testability.report.dir}/results.xml" />
-                            </tasks>
-
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
         </plugins>
     </build>
 
