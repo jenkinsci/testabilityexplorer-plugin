@@ -121,6 +121,12 @@
 			<url>http://repo.jenkins-ci.org/public/</url>
 		</pluginRepository>
 	</pluginRepositories>
+
+	<scm>
+		<connection>scm:git:git://github.com/jenkinsci/testabilityexplorer.git</connection>
+		<developerConnection>scm:git:git@github.com:jenkinsci/testabilityexplorer.git</developerConnection>
+		<url>https://github.com/jenkinsci/testabilityexplorer</url>
+	</scm>
 </project>  
   
 
