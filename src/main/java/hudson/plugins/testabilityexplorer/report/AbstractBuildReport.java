@@ -30,19 +30,21 @@ import java.util.List;
  */
 public abstract class AbstractBuildReport<T extends AbstractBuild<?, ?>> extends AbstractBuildAction<T>
 {
-    private final Collection<Statistic> m_results;
+    private Collection<Statistic> m_results = new ArrayList<Statistic>();
     private final ReportBuilder m_reportBuilder;
     private final CostDetailBuilder m_detailBuilder;
 
     public AbstractBuildReport(Collection<Statistic> results, ReportBuilder reportBuilder, CostDetailBuilder detailBuilder) {
-        m_results = results;
+        if(results != null) {
+	        m_results = results;
+        }
         m_reportBuilder = reportBuilder;
         m_detailBuilder = detailBuilder;
     }
 
     public Collection<Statistic> getResults()
     {
-        return m_results == null ? new ArrayList<Statistic>() : new ArrayList<Statistic>(m_results);
+        return m_results;
     }
 
     void addResults(Collection<Statistic> statistics)
